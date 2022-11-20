@@ -32,7 +32,6 @@
   },
   "dependencies": {
     "lodash": "^4.17.21",
-    "simplex-noise": "^4.0.1",
     "ts-loader": "^9.4.1"
   },
   "private": true
