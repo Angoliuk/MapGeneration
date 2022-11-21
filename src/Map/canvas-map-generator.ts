@@ -1,6 +1,7 @@
-import { mapSize, pointSize } from '../configs';
+import { mapSize, pointSize } from '../World/configs';
+import type { Tile, TilesMapTypes } from '../World/tile';
 
-export const generateMapCanvas = (mapMatrix: Array<Array<string>>) => {
+export const generateMapCanvas = (tilesMatrix: Tile[][], mapType: TilesMapTypes) => {
   const mapContainer = document.createElement('div');
   mapContainer.classList.add('map-container');
 
@@ -14,8 +15,8 @@ export const generateMapCanvas = (mapMatrix: Array<Array<string>>) => {
 
   for (let y = 0; y < mapSize.height; y++) {
     for (let x = 0; x < mapSize.width; x++) {
-      mapContext.fillStyle = mapMatrix[y][x];
-      mapContext.fillRect(x, y, pointSize.width, pointSize.height);
+      mapContext.fillStyle = tilesMatrix[y][x][mapType].color;
+      mapContext.fillRect(x * pointSize.width, y * pointSize.height, pointSize.width, pointSize.height);
     }
   }
 
