@@ -1,4 +1,4 @@
-import { mapSize } from '../../configs';
+import { mapSize } from '../../World/configs';
 import { getNoiseConfigs } from '../General/get-noise';
 
 export const climateNoiseConfigs: getNoiseConfigs = {
