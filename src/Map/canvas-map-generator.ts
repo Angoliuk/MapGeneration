@@ -15,11 +15,17 @@ export type GenerateLightMapCanvas = {
 export type GenerateMapCanvasProps = GenerateWorldMapCanvas | GenerateLightMapCanvas;
 
 export const generateMapCanvas = ({ tilesMatrix, mapType }: GenerateMapCanvasProps) => {
-  const mapContainer = document.createElement('div');
-  mapContainer.classList.add('map-container');
+  let map = document.getElementById(mapType) as HTMLCanvasElement;
+  if (!map) {
+    const mapContainer = document.createElement('div');
+    mapContainer.classList.add('map-container');
 
-  const map = document.createElement('canvas');
-  map.id = mapType;
+    map = document.createElement('canvas');
+    map.id = mapType;
+    mapContainer.prepend(map);
+    document.body.insertAdjacentElement('afterbegin', mapContainer);
+  }
+
   const mapContext = map.getContext('2d');
 
   if (mapContext === null) return alert('bib bop');
@@ -38,7 +44,4 @@ export const generateMapCanvas = ({ tilesMatrix, mapType }: GenerateMapCanvasPro
       });
     }
   }
-
-  mapContainer.prepend(map);
-  document.body.insertAdjacentElement('afterbegin', mapContainer);
 };
