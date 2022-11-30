@@ -1,23 +1,23 @@
 import { DateTime } from 'luxon';
 
 export const pointSize = {
-  width: 20,
-  height: 20
+  width: 6,
+  height: 6
 };
 
 export const mapSize = {
-  width: 250,
-  height: 250
+  width: 300,
+  height: 100
 };
 
 export const timeConfigs = {
   date: DateTime.fromObject({
     year: 0,
-    month: 0,
-    day: 0,
+    month: 1,
+    day: 1,
     hour: 0,
     minute: 0
   }),
-  // represent number of frames for a day
-  dayTime: 3
+  // represent ms of day
+  dayTime: 100
 };
