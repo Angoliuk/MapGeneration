@@ -5,6 +5,7 @@ import { getBiomeType, GetBiomeTypeProps } from './biome-type-determiner';
 
 export const generateBiomeTile = (noises: GetBiomeTypeProps) => {
   const type = getBiomeType(noises);
+  // getting avg noise
   const noise = Object.values(noises).reduce(
     (prev: number, key: number) => prev += key
   ) / Object.keys(noises).length;

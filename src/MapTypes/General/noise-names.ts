@@ -1,6 +1,6 @@
 export enum NoiseNames {
   // BIOME = 'BIOME',
-  // SOIL = 'SOIL',
+  LIGHT = 'LIGHT',
   CLIMATE = 'CLIMATE',
   HUMIDITY = 'HUMIDITY',
   RELIEF = 'RELIEF'
