@@ -1,4 +1,4 @@
-import { mapSize } from '../constants/world';
+import { mapSize } from '../../constants/world';
 import { generateWorldTile } from './world-tile-generator';
 import { WorldTile } from './world-tiles';
 

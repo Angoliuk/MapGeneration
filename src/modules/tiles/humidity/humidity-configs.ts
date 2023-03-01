@@ -1,4 +1,4 @@
-import { getNoiseConfigs } from '../../noises/get-noise';
+import { getNoiseConfigs } from '../../../services/noises/get-noise';
 
 export const humidityNoiseConfigs: getNoiseConfigs = {
   getCoordinates: ({ octavesTotal, octavesLeft, x, y }) => {

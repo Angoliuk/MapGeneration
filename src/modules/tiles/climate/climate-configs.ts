@@ -1,5 +1,5 @@
-import { mapSize } from '../../constants/world';
-import { getNoiseConfigs } from '../../noises/get-noise';
+import { mapSize } from '../../../constants/world';
+import { getNoiseConfigs } from '../../../services/noises/get-noise';
 
 export const climateNoiseConfigs: getNoiseConfigs = {
   getCoordinates: ({ octavesTotal, octavesLeft, x, y }) => {

@@ -1,4 +1,4 @@
-import { getNoise } from '../noises/get-noise';
+import { getNoise } from '../../services/noises/get-noise';
 import { climateColors } from './climate/climate-colors';
 import { climateNoiseConfigs } from './climate/climate-configs';
 import { getClimateType } from './climate/climate-type-determiner';

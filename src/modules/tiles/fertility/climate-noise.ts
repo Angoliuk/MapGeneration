@@ -1,4 +1,4 @@
-import { noise } from '../../noises/perlin/perlin-noise';
+import { noise } from '../../../services/noises/perlin/perlin-noise';
 
 export const getClimateNoise = (
   coordinateX: number,
