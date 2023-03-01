@@ -1,0 +1,7 @@
+export enum HumidityTypes {
+  MINIMAL = 'MINIMAL',
+  AVG_MINIMAL = 'AVG_MINIMAL',
+  AVERAGE = 'AVERAGE',
+  AVG_MAXIMAL = 'AVG_MAXIMAL',
+  MAXIMAL = 'MAXIMAL',
+}
