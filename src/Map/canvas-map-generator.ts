@@ -1,21 +1,16 @@
-import { mapSize, pointSize } from '../World/configs';
-import type { LightTile, LightTilesMapTypes, WorldTile, WorldTilesMapTypes } from '../World/tile';
+import { mapSize, pointSize } from '../constants/world';
+import { WorldTile, WorldTilesMapTypes } from '../modules/world/world-tiles';
 import { drawTile } from './draw-tile';
 
 export type GenerateWorldMapCanvas = {
-  tilesMatrix: WorldTile[][],
-  mapType: WorldTilesMapTypes
-}
+  tilesMatrix: WorldTile[][];
+  mapType: WorldTilesMapTypes;
+};
 
-export type GenerateLightMapCanvas = {
-  tilesMatrix: LightTile[][],
-  mapType: LightTilesMapTypes
-}
+export type GenerateMapCanvasProperties = GenerateWorldMapCanvas;
 
-export type GenerateMapCanvasProps = GenerateWorldMapCanvas | GenerateLightMapCanvas;
-
-export const generateMapCanvas = ({ tilesMatrix, mapType }: GenerateMapCanvasProps) => {
-  let map = document.getElementById(mapType) as HTMLCanvasElement;
+export const generateMapCanvas = ({ tilesMatrix, mapType }: GenerateMapCanvasProperties) => {
+  let map = document.querySelector('#' + mapType) as HTMLCanvasElement;
   if (!map) {
     const mapContainer = document.createElement('div');
     mapContainer.classList.add('map-container');
@@ -36,11 +31,10 @@ export const generateMapCanvas = ({ tilesMatrix, mapType }: GenerateMapCanvasPro
   for (let y = 0; y < mapSize.height; y++) {
     for (let x = 0; x < mapSize.width; x++) {
       drawTile({
-        // @ts-expect-error mapType types
         color: tilesMatrix[y][x][mapType].color,
         mapContext,
         x,
-        y
+        y,
       });
     }
   }

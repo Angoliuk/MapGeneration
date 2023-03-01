@@ -1,0 +1,8 @@
+{
+  ".ts": [
+    "pnpm commit:check:js"
+  ],
+  ".tsx": [
+    "pnpm commit:check:js"
+  ]
+}
