@@ -15,24 +15,24 @@ export class Vector {
 
 const shuffle = (tab: number[]) => {
   const shuffled = tab;
-  for (let e = shuffled.length - 1; e > 0; e--) {
-    const index = Math.round(Math.random() * (e - 1));
-    const temp = shuffled[e];
+  for (let element = shuffled.length - 1; element > 0; element--) {
+    const index = Math.round(Math.random() * (element - 1));
+    const temporary = shuffled[element];
 
-    shuffled[e] = shuffled[index];
-    shuffled[index] = temp;
+    shuffled[element] = shuffled[index];
+    shuffled[index] = temporary;
   }
   return shuffled;
 };
 
 const makePermutation = () => {
   let permutation = [];
-  for (let i = 0; i < 256; i++) {
-    permutation.push(i);
+  for (let index = 0; index < 256; index++) {
+    permutation.push(index);
   }
   permutation = shuffle(permutation);
-  for (let i = 0; i < 256; i++) {
-    permutation.push(permutation[i]);
+  for (let index = 0; index < 256; index++) {
+    permutation.push(permutation[index]);
   }
 
   return permutation;
@@ -44,10 +44,18 @@ const getConstantVector = (v: number) => {
   // v is the value from the permutation table
   const h = v & 3;
   switch (h) {
-    case 0: return new Vector(1, 1);
-    case 1: return new Vector(-1, 1);
-    case 2: return new Vector(-1, -1);
-    default: return new Vector(1, -1);
+    case 0: {
+      return new Vector(1, 1);
+    }
+    case 1: {
+      return new Vector(-1, 1);
+    }
+    case 2: {
+      return new Vector(-1, -1);
+    }
+    default: {
+      return new Vector(1, -1);
+    }
   }
 };
 
@@ -85,14 +93,16 @@ export const noise = (x: number, y: number) => {
   const u = fade(xf);
   const v = fade(yf);
 
-  return lerp(
-    u,
-    lerp(v, dotBottomLeft, dotTopLeft),
-    lerp(v, dotBottomRight, dotTopRight)
-  );
+  return lerp(u, lerp(v, dotBottomLeft, dotTopLeft), lerp(v, dotBottomRight, dotTopRight));
 };
 
-export const noiseMultiOctave = (coordinateX: number, coordinateY: number, octaves: number, persistance = 0.55, initialAmplitude = 1) => {
+export const noiseMultiOctave = (
+  coordinateX: number,
+  coordinateY: number,
+  octaves: number,
+  persistance = 0.55,
+  initialAmplitude = 1,
+) => {
   let amplitude = initialAmplitude;
   let max = 0;
   let y = coordinateY;
@@ -110,7 +120,7 @@ export const noiseMultiOctave = (coordinateX: number, coordinateY: number, octav
     y *= 2;
   }
 
-  return ((result / max) + 1) / 2;
+  return (result / max + 1) / 2;
 };
 
 //   // public GenerateNoise(fx: number, fy: number, octaves = 2, persistence = 0.5) {
